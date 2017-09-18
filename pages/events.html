@@ -1,0 +1,68 @@
+<style> 
+	h1 {
+		margin-top: 2.5rem;
+	} 
+
+	.carousel {
+		width: 100%; 
+		margin-top: 2.5rem; 
+		margin-bottom: 8rem; 
+		height: 18rem;
+	}
+
+	.carousel-cell {
+		position: relative;
+
+		width: 30%;
+		height: 100%;
+		margin-right: 1rem;
+		
+		background: #8C8;
+		background-size: cover;
+		color: #fff;
+	}
+
+	.carousel-cell .text {
+		position: absolute;
+		bottom: 3rem;
+		left: 1rem;
+	}
+
+	.carousel-cell .text p,
+	.carousel-cell .text h3 {
+		margin: 0;
+	}
+
+	.carousel-cell.passed {
+		filter: grayscale(100%);
+	}
+
+	@media(max-width: 960px) {
+		.carousel-cell {
+			width: 60%;
+		}
+	}
+
+	@media(max-width: 768px) {
+		.carousel-cell {
+			width: 75%;
+		}
+	}
+
+	@media(max-width: 500px) {
+		.carousel-cell {
+			width: 85%;
+		}
+	}
+</style>
+
+<h1 class="font-thin text-center">События</h1>
+
+<div class="carousel">
+	<div class="carousel-cell" ng-class="{passed: event.passed }" on-finish-render="repeatFinished" style="background-image: url('{{ event.img }}');" ng-repeat="event in events">
+		<div class="text"> 
+			<h3>{{ event.title }}</h3>
+			<p>{{ event.descr }}</p>
+		</div>
+	</div>
+</div>

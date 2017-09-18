@@ -1,0 +1,43 @@
+<link href="css/home.css" rel="stylesheet">
+
+<!-- style="background-image: url('{{ headerImg }}'); background-size: cover;" -->
+<header style="background-image: url('{{ headerImg }}'); background-size: cover;">
+<!-- 	<div class="carousel">
+  		<img src="img/bg_1.jpg" />
+  		<img src="img/bg_2.jpg" />
+  		<img src="img/bg_3.jpg" />
+  		<img src="img/bg_4.jpg" />
+  		<img src="img/bg_5.jpg" />
+	</div> -->
+
+	<h1>{{ seo.home.h1 }}</h1>
+	<h2>Мы учим навыкам будущего</h2>
+</header>
+
+<section id="benefits"> 
+	<benefit icon="benefit.icon" name="benefit.name" descr="benefit.descr" ng-repeat="benefit in benefits"></benefit>
+
+	<hr id="line" />
+</section>
+
+<section id="about"> 
+	<iframe src="{{ projectInfo.videoSrc | trusted }}" frameborder="0" allowfullscreen></iframe>
+	<div id="text"> 
+		<h2>О нас</h2>
+		<p>{{ projectInfo.about }}</p>
+	</div>
+</section>
+
+<section id="partners">
+	<h2>Наши партнёры</h2>
+	<div id="partners-list"> 
+		<partner img="partner.img" ng-repeat="partner in partners"></partner>
+	</div>
+</section>
+
+<section id="team"> 
+	<h2>Команда</h2>
+	<div id="tutors-list"> 
+		<tutor name="tutor.name" title="tutor.title" img="tutor.img" ng-repeat="tutor in tutors | limitTo: 3"></tutor>
+	</div>
+</section>
