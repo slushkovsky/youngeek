@@ -17,51 +17,6 @@ body {
 	text-align: center;
 }
 
-/* Navbar */
-
-nav {
-	display: grid;
-	grid-template-columns: repeat(12, 1fr);
-	height: 8%;
-
-	padding-left: 2rem;
-	padding-right: 2rem;
-
-	background-color: #3b3b3b;
-}
-
-nav #items-list {
-	align-self: center;
-}
-
-@media(max-width: 960px) {
-	nav #items-list {
-		display: none;
-	}
-}
-
-nav #logo {
-	grid-column: 1 / 12;
-	align-self: center;
-}
-
-@media(max-width: 960px) {
-	nav #logo {
-		grid-column: 7 / 12;
-	}
-}
-
-nav #logo img {
-	height: 4vh;
-}
-
-nav .menu-item {
-	margin-right: 1rem;
-
-	color: #fff;
-	text-decoration: none;
-}
-
 /* Footer */
 
 footer {

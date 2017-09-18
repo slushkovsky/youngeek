@@ -10,5 +10,13 @@ app.controller('menuCtrl', [
 
 			$scope.$apply(); 
 		});
+
+		$scope.menuAnimation = undefined;
+		$scope.toggleMenu = function() {
+			if ($scope.menuAnimation === undefined || $scope.menuAnimation === 'close')
+				$scope.menuAnimation = 'open';
+			else 
+				$scope.menuAnimation = 'close';
+		}
 	}
 ]);

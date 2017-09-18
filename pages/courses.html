@@ -1,0 +1,44 @@
+<style> 
+	#content {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-column-gap: 1rem;
+		grid-row-gap: 1rem;
+
+		margin-top: 2rem;
+		margin-bottom: 5rem;
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+
+	h2 {
+		grid-column: 1 / -1;
+	}
+
+	.card {
+		height: 10rem;
+		background-color: gray;
+	}
+
+	@media(max-width: 768px) {
+		#content {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media(max-width: 560px) {
+		#content {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+</style>
+
+<div id="content"> 
+	<h2>Детям до 13</h2>
+	<div class="card" ng-repeat="course in [{}, {}, {}, {}]">
+	</div>
+
+	<h2>Детям от 13</h2>
+	<div class="card" ng-repeat="course in [{}, {}, {}, {}]"> 
+	</div>
+</div>

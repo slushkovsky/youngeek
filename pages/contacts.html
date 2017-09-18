@@ -9,26 +9,40 @@
 
 	#content #map {
 		grid-column: 1 / -1;
-		height: 20rem;
-
+		height: 91.5vh;
 
 		background-color: gray;
 	}
 
+	#contacts {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+
+	i {
+		opacity: .6;
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: .5rem;
+	}
+
 	@media(max-width: 768px) {
-		#form,
 		#contacts {
 			grid-column: 1 / -1;
+		}
+
+		#contacts {
+			grid-row-start: 2;
+			text-align: center;
 		}
 	}
 </style>
 
 <div id="content">
-	<div id="map"></div>
-	<div id="form">
-		Form
-	</div>
+	<div id="map" ng-init="initMap()"></div>
 	<div id="contacts">
-		Contacts
+		<i class="material-icons">place</i>ул. Февральская, д.6 к 6<br>
+		<i class="material-icons">phone</i>+7 (999) 999-99-99<br>
+		<i class="material-icons">email</i>some@gmail.om
 	</div>
-</div>
+</div> 

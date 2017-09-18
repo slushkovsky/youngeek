@@ -5,15 +5,20 @@
 		<meta charset="utf-8">
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
-		<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		
+		<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
 		<link href="css/common.css" rel="stylesheet">
+		<link href="css/menu.css" rel="stylesheet">
 
 		<script src="https://unpkg.com/contentful@latest/dist/contentful.min.js"></script>
 		<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
+
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOTjVgbcCH_QMZFsskcCGAtBhqeVLGbeE"></script>
 
 		<script>
 			angular.module('app', ['ngRoute'])
@@ -48,20 +53,32 @@
 		<script src="js/configFactory.js"></script>
 
 		<script src="js/homeCtrl.js"></script>
+		<script src="js/faqCtrl.js"></script>
+		<script src="js/coursesCtrl.js"></script>
 		<script src="js/eventsCtrl.js"></script>
+		<script src="js/contactsCtrl.js"></script>
 		<script src="js/menuCtrl.js"></script>
 		<script src="js/footerCtrl.js"></script>
 	</head>
 
-	<body> 
-		<nav ng-controller="menuCtrl"> 
-			<div id="logo">
-				<img src="{{ logo }}" />
-			</div>
-			<div id="items-list"> 
-				<a class="menu-item" ng-href="{{ item.href }}" ng-repeat="item in menuItems">{{ item.name }}</a>
-			</div>
-		</nav>
+	<body>
+		<div ng-controller="menuCtrl"> 
+			<i class="material-icons" id="menu-toggler" ng-click="toggleMenu()" style="color: #fff;">menu</i>
+			
+			<nav id="nav-desktop">  
+				<div id="logo">
+					<img src="{{ logo }}" />
+				</div>
+				<div id="items-list"> 
+					<a class="menu-item" ng-href="{{ item.href }}" ng-repeat="item in menuItems">{{ item.name }}</a>
+				</div>
+			</nav>
+
+			<aside id="nav-mobile" ng-class="{open: menuAnimation == 'open', close: menuAnimation == 'close'}"> 
+				<div ng-repeat="item in menuItems">{{ item.name }}</div>
+			</aside>
+			<div id="content-cover" ng-class="{open: menuAnimation == 'open', close: menuAnimation == 'close'}" ng-click="toggleMenu()"></div>
+		</div>
 
 		<ng-view></ng-view>
 		
